@@ -124,7 +124,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         z-index: 0 !important; pointer-events: none !important
     }
     .ant-row.ant-row-center>.ant-col-lg-6:first-child::after {
-        content: '6 GREETINGS  ·  16 IMAGES' !important;
+        content: '10 GREETINGS  ·  26 IMAGES' !important;
         grid-column: 1 !important; grid-row: 2 !important;
         align-self: end !important; justify-self: center !important; z-index: 1 !important;
         font-family: var(--co-font-body) !important; font-size: 0.78em !important;
@@ -172,7 +172,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         z-index: 0 !important; pointer-events: none !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6::after {
-        content: '6 GREETINGS  ·  16 IMAGES' !important;
+        content: '10 GREETINGS  ·  26 IMAGES' !important;
         grid-column: 1 !important; grid-row: 2 !important;
         align-self: end !important; justify-self: center !important; z-index: 1 !important;
         font-family: var(--co-font-body) !important; font-size: 0.65em !important;
@@ -524,6 +524,8 @@ div.mt-2 { margin-top: 24px !important }
 .co-page .co-card, .co-page .co-right-stack > .co-card, .co-page .co-card.co-feedback, .co-page .co-card.co-credits { padding: 20px !important }
 .co-page .co-card.co-sc-list-box { padding: 0 !important }
 .co-page .co-card.co-sc-list-box > .co-card-label { padding: 20px 20px 12px 20px !important; margin: 0 !important }
+.co-page .co-card.co-sc-list-box > .co-sc-label-row { padding: 20px 20px 12px 20px !important }
+.co-page .co-card.co-sc-list-box > .co-sc-label-row > .co-card-label { padding: 0 !important; margin: 0 !important }
 
 .co-card p { font-family: var(--co-font-body); font-size: 0.92em; font-weight: 400; color: var(--co-text); line-height: 1.7; margin: auto 0 }
 .co-right-stack .co-card > p { margin-top: auto !important; margin-bottom: auto !important }
@@ -573,17 +575,26 @@ div.mt-2 { margin-top: 24px !important }
 .co-sc-row:has(.sc-ent-4:hover) .sc-img-4 { opacity: 1 }
 .co-sc-row:has(.sc-ent-5:hover) .sc-img-5 { opacity: 1 }
 .co-sc-row:has(.sc-ent-6:hover) .sc-img-6 { opacity: 1 }
+.co-sc-row:has(.sc-ent-7:hover) .sc-img-7 { opacity: 1 }
+.co-sc-row:has(.sc-ent-8:hover) .sc-img-8 { opacity: 1 }
+.co-sc-row:has(.sc-ent-9:hover) .sc-img-9 { opacity: 1 }
+.co-sc-row:has(.sc-ent-10:hover) .sc-img-10 { opacity: 1 }
 
 .co-sc-list-box {
     flex: 1; margin-top: 0; padding: 0 !important; overflow: hidden;
     display: flex; flex-direction: column;
     border-style: solid !important; border-width: 1px 2px 1px 1px !important;
     border-color: var(--co-border-idle);
+    clip-path: none !important;
     animation: co-fadeUp .6s ease both, co-borderShiftR 8s ease-in-out infinite !important
 }
-.co-sc-entries { flex: 1; display: flex; flex-direction: column }
+.co-sc-entries { flex: 1; display: flex; flex-direction: column; overflow-y: auto; min-height: 0; max-height: 750px }
+.co-sc-entries::-webkit-scrollbar { width: 4px }
+.co-sc-entries::-webkit-scrollbar-track { background: transparent }
+.co-sc-entries::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px }
+.co-sc-entries::-webkit-scrollbar-thumb:hover { background: rgba(255, 140, 66, 0.3) }
 .co-sc-entry {
-    flex: 1; display: flex; align-items: center; gap: 16px;
+    flex: 0 0 125px; display: flex; align-items: center; gap: 16px;
     padding: 0 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     cursor: default; transition: background 0.25s ease, border-color 0.25s ease, padding 0.25s ease
 }
@@ -630,13 +641,40 @@ div.mt-2 { margin-top: 24px !important }
     color: var(--co-blue); border-color: rgba(61, 139, 253, 0.4);
     background: rgba(61, 139, 253, 0.08)
 }
+.co-badge-green {
+    color: #4ade80; border-color: rgba(74, 222, 128, 0.4);
+    background: rgba(74, 222, 128, 0.08);
+    animation: co-greenGlow 3s ease-in-out infinite
+}
+@keyframes co-greenGlow {
+    0%, 100% { box-shadow: 0 0 4px rgba(74, 222, 128, 0.15); border-color: rgba(74, 222, 128, 0.3) }
+    50% { box-shadow: 0 0 12px rgba(74, 222, 128, 0.3), 0 0 24px rgba(74, 222, 128, 0.1); border-color: rgba(74, 222, 128, 0.6) }
+}
+
+/* Scenario label row — flex with badge + slide hint */
+.co-sc-label-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 20px 20px 12px 20px
+}
+.co-sc-label-row .co-card-label { margin: 0 !important; padding: 0 !important }
+.co-sc-slide-hint {
+    margin-left: auto; font-family: var(--co-font-body);
+    font-size: 0.65em; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--co-text-faint);
+    animation: co-slideHint 2.5s ease-in-out infinite
+}
+@keyframes co-slideHint {
+    0%, 100% { opacity: 0.35 }
+    50% { opacity: 0.7 }
+}
 
 @media (max-width: 640px) {
     .co-sc-row { flex-direction: column; gap: 12px }
     .co-sc-preview-box { display: none !important }
-    .co-sc-entries { min-height: auto }
-    .co-sc-entry { padding: 14px 16px }
+    .co-sc-entries { min-height: auto; max-height: 500px }
+    .co-sc-entry { padding: 14px 16px; flex: 0 0 auto }
     .co-sc-entry:hover { padding-left: 14px }
+    .co-sc-slide-hint { font-size: 0.6em }
 }
 
 /* ═══ PRESET / BUTTONS ═══ */
