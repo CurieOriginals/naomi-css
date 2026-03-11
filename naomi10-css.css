@@ -594,7 +594,7 @@ div.mt-2 { margin-top: 24px !important }
 .co-sc-entries::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px }
 .co-sc-entries::-webkit-scrollbar-thumb:hover { background: rgba(255, 140, 66, 0.3) }
 .co-sc-entry {
-    flex: 0 0 auto; min-height: 118px; display: flex; align-items: center; gap: 16px;
+    flex: 0 0 125px; display: flex; align-items: center; gap: 16px;
     padding: 0 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     cursor: default; transition: background 0.25s ease, border-color 0.25s ease, padding 0.25s ease
 }
@@ -671,8 +671,8 @@ div.mt-2 { margin-top: 24px !important }
 @media (max-width: 640px) {
     .co-sc-row { flex-direction: column; gap: 12px }
     .co-sc-preview-box { display: none !important }
-    .co-sc-entries { min-height: auto }
-    .co-sc-entry { padding: 14px 16px; min-height: auto }
+    .co-sc-entries { min-height: auto; max-height: 500px }
+    .co-sc-entry { padding: 14px 16px; flex: 0 0 auto }
     .co-sc-entry:hover { padding-left: 14px }
     .co-sc-slide-hint { font-size: 0.6em }
 }
