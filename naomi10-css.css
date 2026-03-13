@@ -726,6 +726,44 @@ div.mt-2 { margin-top: 24px !important }
     .co-card-row .co-profile-box .co-profile-img { max-height: 300px }
 }
 
+/* ═══ MEET BANNER ═══ */
+.co-meet-banner {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    padding: 0 !important; overflow: hidden; min-height: 160px;
+    border-style: solid !important; border-width: 1px 2px 1px 2px !important;
+    border-color: var(--co-border-idle);
+    animation: co-fadeUp .6s ease .35s both, co-borderShiftLR 8s ease-in-out infinite !important;
+    text-decoration: none; cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease
+}
+.co-meet-banner:hover { transform: translateY(-2px); opacity: 1; box-shadow: 0 0 20px rgba(61, 139, 253, 0.15) }
+.co-meet-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center; display: block
+}
+.co-meet-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(12, 12, 14, 0.7) 0%, rgba(12, 12, 14, 0.3) 30%, rgba(12, 12, 14, 0.3) 70%, rgba(12, 12, 14, 0.7) 100%);
+    pointer-events: none; transition: background .3s ease
+}
+.co-meet-banner:hover .co-meet-overlay {
+    background: linear-gradient(to right, rgba(12, 12, 14, 0.5) 0%, rgba(12, 12, 14, 0.15) 30%, rgba(12, 12, 14, 0.15) 70%, rgba(12, 12, 14, 0.5) 100%)
+}
+.co-meet-text {
+    position: relative; z-index: 2;
+    font-family: var(--co-font-display); font-size: 1.6em; font-weight: 800;
+    color: #fff; letter-spacing: 0.04em;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6), 0 0 30px rgba(61, 139, 253, 0.3);
+    transition: text-shadow .3s ease
+}
+.co-meet-banner:hover .co-meet-text {
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 140, 66, 0.4)
+}
+@media (max-width: 640px) {
+    .co-meet-banner { min-height: 120px }
+    .co-meet-text { font-size: 1.2em }
+}
+
 /* ═══ CREDITS ═══ */
 .co-credits {
     border-style: solid !important; border-width: 1px 2px 1px 2px !important;
