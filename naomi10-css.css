@@ -737,9 +737,11 @@ div.mt-2 { margin-top: 24px !important }
     transition: transform .25s ease, box-shadow .25s ease
 }
 .co-meet-banner:hover { transform: translateY(-2px); opacity: 1; box-shadow: 0 0 20px rgba(61, 139, 253, 0.15) }
+.co-meet-banner:hover .co-meet-img { filter: brightness(0.65); transform: scale(1.03) }
 .co-meet-img {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: center; display: block
+    object-fit: cover; object-position: center; display: block;
+    transition: filter .3s ease, transform .4s ease
 }
 .co-meet-overlay {
     position: absolute; inset: 0;
@@ -754,10 +756,11 @@ div.mt-2 { margin-top: 24px !important }
     font-family: var(--co-font-display); font-size: 1.6em; font-weight: 800;
     color: #fff; letter-spacing: 0.04em;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6), 0 0 30px rgba(61, 139, 253, 0.3);
-    transition: text-shadow .3s ease
+    transition: text-shadow .3s ease, letter-spacing .3s ease
 }
 .co-meet-banner:hover .co-meet-text {
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 140, 66, 0.4)
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 140, 66, 0.4);
+    letter-spacing: 0.12em
 }
 @media (max-width: 640px) {
     .co-meet-banner { min-height: 120px }
