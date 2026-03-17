@@ -697,7 +697,7 @@ div.mt-2 { margin-top: 24px !important }
 
 .co-feedback { animation: co-fadeUp .6s ease .35s both, co-borderShiftR 8s ease-in-out infinite !important }
 .co-right-stack .co-feedback { text-align: left }
-.co-feedback p { color: var(--co-text-dim); margin-bottom: 12px !important }
+.co-feedback p { color: var(--co-text); margin-bottom: 12px !important }
 .co-feedback .co-btn-row { margin-top: auto }
 
 .co-btn-row {
